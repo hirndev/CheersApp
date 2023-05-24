@@ -1,7 +1,22 @@
-<script></script>
+<script>
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+import AppHome from "./components/AppHome.vue";
+
+export default {
+  name: "App",
+  components: {
+    AppHeader,
+    AppFooter,
+    AppHome
+  }
+};
+</script>
 
 <template>
-  <h1>Welcome to AI Wall Arts</h1>
+  <AppHeader></AppHeader>
+  <AppHome></AppHome>
+  <AppFooter></AppFooter>
 </template>
 
 <style></style>
