@@ -14,6 +14,7 @@ export default {
         this.screenSmall = true;
       } else {
         this.screenSmall = false;
+        this.fullscreenMenu = false;
       }
     },
     burgerClicked() {
@@ -80,7 +81,7 @@ export default {
   </v-toolbar>
 </template>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap");
 .logo_text {
   font-family: "Dancing Script", cursive;
@@ -88,9 +89,5 @@ export default {
 }
 .logo_img {
   height: 3rem;
-}
-.fullMenu_toolbar {
-  top: 82;
-  background-color: black;
 }
 </style>
