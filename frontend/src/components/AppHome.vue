@@ -1,7 +1,5 @@
 <template>
-  <div class="main container">
-    <h1>Welcome to AI WallArt</h1>
-  </div>
+  <div class="main container"></div>
 </template>
 
 <script>

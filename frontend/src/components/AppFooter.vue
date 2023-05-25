@@ -10,4 +10,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.footer {
+  margin-top: auto;
+  height: 10rem;
+}
+</style>

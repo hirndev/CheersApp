@@ -1,21 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 .container {
   padding-left: 5vw;
   padding-right: 5vw;
 }
-/* .navbar {
-} */
 .main {
   padding-top: 1vh;
   padding-bottom: 1vh;
   min-height: 100vh;
 }
-.footer {
-  margin-top: auto;
-  height: 10rem;
-}
-.logo_name {
-  font-family: "Dancing Script", cursive;
-  /* font-weight: 700; */
-  font-size: 5rem;
+.site_font {
+  font-family: "Roboto", sans-serif;
 }
