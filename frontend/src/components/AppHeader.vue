@@ -81,7 +81,7 @@ export default {
         </div>
       </v-app-bar>
 
-      <v-navigation-drawer class="w-50" v-model="fullscreenMenu" location="right" temporary>
+      <v-navigation-drawer class="w-75" v-model="fullscreenMenu" location="right" temporary>
         <v-list class="fullmenu d-flex flex-column align-end mr-5">
           <v-list-item width="300">
             <v-text-field
@@ -116,7 +116,6 @@ export default {
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
-
       <v-main></v-main>
     </v-layout>
   </v-card>
