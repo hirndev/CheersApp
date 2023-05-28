@@ -1,6 +1,11 @@
 <script>
 export default {
   name: "AppHeader",
+  mounted() {
+    /* Could use CSS media Queries with "display: contents/none" for this, but this help me check if the fullscreenMenu is open/close */
+    window.addEventListener("load", this.checkScreen);
+    window.addEventListener("resize", this.checkScreen);
+  },
   data() {
     return {
       searchBar: false /* 0 is Hidden, 1 is Show */,
@@ -22,10 +27,7 @@ export default {
       this.$emit("showFullmenu");
     }
   },
-  mounted() {
-    window.addEventListener("load", this.checkScreen);
-    window.addEventListener("resize", this.checkScreen);
-  }
+  emits: ["show-fullmenu"]
 };
 </script>
 
@@ -50,7 +52,7 @@ export default {
       </v-scroll-x-transition>
     </v-responsive>
 
-    <v-btn @click="searchBar = !searchBar" v-show="!screenSmall" icon>
+    <v-btn @click.prevent="searchBar = !searchBar" v-show="!screenSmall" icon>
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
 
@@ -71,10 +73,10 @@ export default {
     </v-btn>
 
     <div v-show="screenSmall">
-      <v-btn v-show="!fullscreenMenu" @click="burgerClicked" icon>
+      <v-btn v-show="!fullscreenMenu" @click.prevent="burgerClicked" icon>
         <v-icon>mdi-menu</v-icon>
       </v-btn>
-      <v-btn v-show="fullscreenMenu" @click="burgerClicked" icon>
+      <v-btn v-show="fullscreenMenu" @click.prevent="burgerClicked" icon>
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </div>
