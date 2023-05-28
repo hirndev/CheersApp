@@ -1,4 +1,6 @@
 <script>
+import AppHome from "@/components/AppHome.vue";
+
 export default {
   name: "AppHeader",
   mounted() {
@@ -24,8 +26,10 @@ export default {
     },
     burgerClicked() {
       this.fullscreenMenu = !this.fullscreenMenu;
-      // this.$emit("showFullmenu");
     }
+  },
+  components: {
+    AppHome
   }
 };
 </script>
@@ -37,7 +41,6 @@ export default {
       <v-app-bar class="navbar container" elevation="4">
         <img class="logo_img" src="../assets/aiwa_logo_nobg.png" />
         <v-app-bar-title class="logo_text">Ai Wall Art</v-app-bar-title>
-
         <v-card v-show="!screenSmall" style="padding-right: 5vw" elevation="0">
           <v-responsive max-width="300">
             <v-scroll-x-transition>
@@ -53,7 +56,6 @@ export default {
               </v-card-text>
             </v-scroll-x-transition>
           </v-responsive>
-
           <v-btn @click.prevent="searchBar = !searchBar" icon>
             <v-icon>mdi-magnify</v-icon>
           </v-btn>
@@ -70,7 +72,6 @@ export default {
             <v-icon>mdi-cart-outline</v-icon>
           </v-btn>
         </v-card>
-
         <div v-show="screenSmall" style="padding-right: 4vw">
           <v-btn v-show="!fullscreenMenu" @click.prevent="burgerClicked" icon>
             <v-icon>mdi-menu</v-icon>
@@ -81,9 +82,15 @@ export default {
         </div>
       </v-app-bar>
 
-      <v-navigation-drawer class="w-75" v-model="fullscreenMenu" location="right" temporary>
+      <v-navigation-drawer
+        class="w-75"
+        v-model="fullscreenMenu"
+        v-click-outside="burgerClicked"
+        location="right"
+        temporary
+      >
         <v-list class="fullmenu d-flex flex-column align-end mr-5">
-          <v-list-item width="300">
+          <v-list-item class="w-75">
             <v-text-field
               class="w-5"
               density="compact"
@@ -116,7 +123,9 @@ export default {
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
-      <v-main></v-main>
+      <v-main>
+        <AppHome></AppHome>
+      </v-main>
     </v-layout>
   </v-card>
 </template>
