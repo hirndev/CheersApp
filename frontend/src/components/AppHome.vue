@@ -1,6 +1,6 @@
 <template>
   <div class="main container">
-    <h1>Welcome to Ai WallArt</h1>
+    <h1>Welcome to Cheers!</h1>
   </div>
 </template>
 

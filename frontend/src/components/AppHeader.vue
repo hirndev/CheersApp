@@ -3,11 +3,6 @@ import AppHome from "@/components/AppHome.vue";
 
 export default {
   name: "AppHeader",
-  mounted() {
-    /* Could use CSS media Queries with "display: contents/none" for this, but this help me check if the fullscreenMenu is open/close */
-    window.addEventListener("load", this.checkScreen);
-    window.addEventListener("resize", this.checkScreen);
-  },
   data() {
     return {
       searchBar: false /* 0 is Hidden, 1 is Show */,
@@ -30,6 +25,11 @@ export default {
   },
   components: {
     AppHome
+  },
+  mounted() {
+    /* Could use CSS media Queries with "display: contents/none" for this, but this help me check if the fullscreenMenu is open/close */
+    window.addEventListener("load", this.checkScreen);
+    window.addEventListener("resize", this.checkScreen);
   }
 };
 </script>
@@ -38,10 +38,15 @@ export default {
   <!-- bg-grey-lighten-1 -->
   <v-card>
     <v-layout>
-      <v-app-bar class="navbar container" elevation="4">
-        <img class="logo_img" src="../assets/aiwa_logo_nobg.png" />
-        <v-app-bar-title class="logo_text">Ai Wall Art</v-app-bar-title>
-        <v-card v-show="!screenSmall" style="padding-right: 5vw" elevation="0">
+      <v-app-bar class="navbar bg-black container" elevation="4">
+        <img class="logo_img" src="../assets/CheersLogo_nobg.png" />
+        <!-- <v-app-bar-title class="logo_text">Cheers!</v-app-bar-title> -->
+        <v-card
+          v-if="!screenSmall"
+          style="padding-right: 5vw"
+          class="w-100 bg-black d-flex justify-end align-center"
+          elevation="0"
+        >
           <v-responsive max-width="300">
             <v-scroll-x-transition>
               <v-card-text v-show="searchBar == 1">
@@ -72,34 +77,32 @@ export default {
             <v-icon>mdi-cart-outline</v-icon>
           </v-btn>
         </v-card>
-        <div v-show="screenSmall" style="padding-right: 4vw">
+        <v-card class="w-100 bg-black d-flex justify-end" v-else elevation="0">
           <v-btn v-show="!fullscreenMenu" @click.prevent="burgerClicked" icon>
             <v-icon>mdi-menu</v-icon>
           </v-btn>
           <v-btn v-show="fullscreenMenu" @click.prevent="burgerClicked" icon>
             <v-icon>mdi-close</v-icon>
           </v-btn>
-        </div>
+        </v-card>
       </v-app-bar>
 
-      <v-navigation-drawer
-        class="w-75"
-        v-model="fullscreenMenu"
-        v-click-outside="burgerClicked"
-        location="right"
-        temporary
-      >
-        <v-list class="fullmenu d-flex flex-column align-end mr-5">
-          <v-list-item class="w-75">
-            <v-text-field
-              class="w-5"
-              density="compact"
-              variant="outlined"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
-          </v-list-item>
+      <v-navigation-drawer class="w-100" v-model="fullscreenMenu" location="right" temporary>
+        <v-list class="d-flex flex-column align-end mr-5 mt-5">
+          <v-card class="w-100 d-flex flex-row justify-end" elevation="0">
+            <v-list-item class="w-75">
+              <v-text-field
+                density="compact"
+                variant="outlined"
+                label="Search"
+                single-line
+                hide-details
+              ></v-text-field>
+            </v-list-item>
+            <v-btn elevation="0" icon>
+              <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+          </v-card>
           <v-list-item>
             <v-btn elevation="0" icon>
               <v-icon>mdi-cart-outline</v-icon>
@@ -123,9 +126,7 @@ export default {
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
-      <v-main>
-        <AppHome></AppHome>
-      </v-main>
+      <v-main class="mt-5"><AppHome></AppHome></v-main>
     </v-layout>
   </v-card>
 </template>
@@ -136,14 +137,17 @@ export default {
   font-family: "Dancing Script", cursive;
   font-size: 2rem;
 }
-.logo_img {
-  height: 3rem;
-}
-.fullMenu {
-  height: 100%;
-  width: 100%;
+.navbar {
+  height: 5rem;
   display: flex;
-  flex-direction: column;
-  position: absolute;
+  flex-direction: row;
+  align-items: center;
+}
+.logo_img {
+  height: 4.2rem;
+}
+.site_font {
+  font-family: "Roboto", sans-serif;
+  /* font-family: "Dancing Script", cursive; */
 }
 </style>

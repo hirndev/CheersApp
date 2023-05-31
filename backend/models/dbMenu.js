@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const path = require("path");
 
-const WallartSchema = new Schema(
+const MenuSchema = new Schema(
   {
     title: String,
     desc: String,
@@ -20,4 +20,4 @@ const WallartSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("Wallart", WallartSchema);
+module.exports = mongoose.model("Menu", MenuSchema);

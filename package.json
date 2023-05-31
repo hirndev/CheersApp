@@ -1,7 +1,7 @@
 {
-  "name": "aiwallart",
+  "name": "cheersapp",
   "version": "1.0.0",
-  "description": "Ecommerce WebApp for Ai Wall Art made with MEVN stack",
+  "description": "Ecommerce WebApp for ordering food and drinks made with MEVN stack",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

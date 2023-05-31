@@ -1,6 +1,6 @@
 <template>
   <div class="footer container py-16 bg-black">
-    <p>&copy; AI WallArt</p>
+    <p>&copy; Cheers Pubs</p>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .footer {
   margin-top: auto;
   height: 10rem;
